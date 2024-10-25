@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox-Based Circular Progress Bar</title>
+    <style>
+        /* Circle progress bar container */
+        .circle-progress {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#4caf50 0% 0%, #ddd 0% 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            position: relative;
+        }
+
+        /* Inner circle for text */
+        .circle-progress span {
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+        }
+
+        /* Checkbox list */
+        .checkbox-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .checkbox-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="circle-progress" id="progress-bar">
+        <span id="progress-percentage">0%</span>
+    </div>
+
+    <ul class="checkbox-list">
+        <li><input type="checkbox" class="progress-checkbox" /> Task 1</li>
+        <li><input type="checkbox" class="progress-checkbox" /> Task 2</li>
+        <li><input type="checkbox" class="progress-checkbox" /> Task 3</li>
+        <li><input type="checkbox" class="progress-checkbox" /> Task 4</li>
+        <li><input type="checkbox" class="progress-checkbox" /> Task 5</li>
+        <li><input type="checkbox" class="progress-checkbox" /> Task 6</li>
+        <li><input type="checkbox" class="progress-checkbox" /> Task 7</li>
+        <li><input type="checkbox" class="progress-checkbox" /> Task 8</li>
+        <li><input type="checkbox" class="progress-checkbox" /> Task 9</li>
+        <li><input type="checkbox" class="progress-checkbox" /> Task 10</li>
+    </ul>
+
+    <script>
+        const checkboxes = document.querySelectorAll('.progress-checkbox');
+        const progressBar = document.getElementById('progress-bar');
+        const progressPercentage = document.getElementById('progress-percentage');
+        const totalCheckboxes = checkboxes.length;
+
+        // Update the progress bar based on checked checkboxes
+        function updateProgressBar() {
+            const checkedCount = document.querySelectorAll('.progress-checkbox:checked').length;
+            const progress = Math.round((checkedCount / totalCheckboxes) * 100);
+
+            // Update the circle progress using conic-gradient
+            progressBar.style.background = `conic-gradient(#4caf50 ${progress}%, #ddd ${progress}% 100%)`;
+
+            // Update the percentage text
+            progressPercentage.textContent = `${progress}%`;
+        }
+
+        // Add event listeners to all checkboxes
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateProgressBar);
+        });
+    </script>
+
+</body>
+</html>
