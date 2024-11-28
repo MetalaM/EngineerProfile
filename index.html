@@ -4,59 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Circular Progress Bar</title>
-    <style>
-        /* Main container to center the progress circle */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Circle progress bar container */
-        .circle-progress {
-            width: 80%;
-            height: 80%;
-            max-width: 500px; /* Max width to prevent it from getting too large on big screens */
-            max-height: 500px; /* Max height for large screens */
-            border-radius: 50%;
-            background: conic-gradient(#4caf50 0% 0%, #ddd 0% 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Inner circle for text */
-        .circle-progress span {
-            font-size: 3vw; /* Scales with screen size */
-            font-weight: bold;
-            position: absolute;
-        }
-
-        /* Checkbox list - keeping it below the progress bar */
-        .checkbox-list {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .checkbox-list li {
-            margin-bottom: 10px;
-            font-size: 1.5vw; /* Adjust font size for larger screens */
-        }
-
-        @media (max-width: 600px) {
-            .checkbox-list li {
-                font-size: 3vw; /* Larger font on smaller screens */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
